@@ -7,7 +7,7 @@ import (
 
 	"github.com/99designs/gqlgen/handler"
 	"github.com/go-pg/pg/v9"
-	src "github.com/pjfcs/goGraphQL_1.13"
+	src "github.com/pjfcs/goGraphQL_1.13/graphql"
 	"github.com/pjfcs/goGraphQL_1.13/postgres"
 )
 

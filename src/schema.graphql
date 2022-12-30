@@ -33,7 +33,7 @@ type Mutation {
 
 # apt update && apt install -y lsb-release
 # curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | bash
-# apt update && install -y migrate
+# apt update && apt install -y migrate
 
 # source .env
 # migrate create -ext sql -dir postgres/migrations create_users
