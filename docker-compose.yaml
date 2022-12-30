@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+    app:
+      build:
+        context: ./golang
+      container_name: goGraphQL
+      ports:
+        - "9000:9000"
+      volumes:
+        - ./src:/go/src/
+      networks:
+        - netGoGraphql
+
+    db:
+      build:
+        context: ./PostgreSQL
+      container_name: dbPostgreSQL
+      restart: always
+      ports:
+        - 5432:5432
+      volumes:
+      - ./PostgreSQL/data:/var/lib/postgresql/data
+      # - ./PostgreSQL/scripts/createDB.sh:/docker-entrypoint-initdb.d/createDB.sh 
+      # command: chmod +x /scripts/dbFiplan.sh
+      environment:
+        POSTGRES_PASSWORD: 1234
+      networks:
+        - netGoGraphql
+
+networks: 
+  netGoGraphql:
+    driver: bridge
