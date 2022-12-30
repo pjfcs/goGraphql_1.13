@@ -268,12 +268,14 @@ type Mutation {
 
 # apt update && apt install -y lsb-release
 # curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | bash
-# apt update && install -y migrate
+# apt update && apt install -y migrate
 
 # source .env
 # migrate create -ext sql -dir postgres/migrations create_users
 # migrate create -ext sql -dir postgres/migrations create_meetups
-# migrate -path "postgres/migrations" -database "$POSTGRES_URL" up`},
+# migrate -path "postgres/migrations" -database "$POSTGRES_URL" up
+
+# go run github.com/vektah/dataloaden UserLoader string '*github.com/pjfcs/goGraphQL_1.13/models.User'`},
 )
 
 // endregion ************************** generated!.gotpl **************************

@@ -39,3 +39,5 @@ type Mutation {
 # migrate create -ext sql -dir postgres/migrations create_users
 # migrate create -ext sql -dir postgres/migrations create_meetups
 # migrate -path "postgres/migrations" -database "$POSTGRES_URL" up
+
+# go run github.com/vektah/dataloaden UserLoader string '*github.com/pjfcs/goGraphQL_1.13/models.User'

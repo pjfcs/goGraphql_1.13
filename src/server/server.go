@@ -7,6 +7,7 @@ import (
 
 	"github.com/99designs/gqlgen/handler"
 	"github.com/go-pg/pg/v9"
+	"github.com/pjfcs/goGraphQL_1.13/graphql"
 	src "github.com/pjfcs/goGraphQL_1.13/graphql"
 	"github.com/pjfcs/goGraphQL_1.13/postgres"
 )
@@ -35,8 +36,10 @@ func main() {
 		UserRepo:    postgres.UsersRepo{DB: DB},
 	}}
 
+	queryHandler := handler.GraphQL(graphql.NewExecutableSchema(c))
+
 	http.Handle("/", handler.Playground("GraphQL playground", "/query"))
-	http.Handle("/query", handler.GraphQL(src.NewExecutableSchema(c)))
+	http.Handle("/query", graphql.DataloaderMiddleware(DB, queryHandler))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))

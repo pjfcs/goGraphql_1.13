@@ -5,7 +5,6 @@ go 1.13
 require (
 	github.com/99designs/gqlgen v0.10.2
 	github.com/agnivade/levenshtein v1.1.1 // indirect
-	github.com/go-pg/pg v8.0.7+incompatible
 	github.com/go-pg/pg/v9 v9.2.1
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
